@@ -1,4 +1,4 @@
--- Set leader key  
+-- Set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -19,6 +19,18 @@ vim.keymap.set("n", "<C-q>", "<cmd> q <CR>", opts)
 
 -- delete single character without copying into register
 vim.keymap.set("n", "x", '"_x', opts)
+
+-- move line up and down
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true })
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
+
+-- duplicate line up/down
+vim.keymap.set("n", "<A-S-j>", ":t .<CR>", { silent = true })
+vim.keymap.set("n", "<A-S-k>", ":t .-1<CR>", { silent = true })
+vim.keymap.set("v", "<A-S-j>", ":t '>+1<CR>gv", { silent = true })
+vim.keymap.set("v", "<A-S-k>", ":t '<-1<CR>gv", { silent = true })
 
 -- Vertical scroll and center
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
